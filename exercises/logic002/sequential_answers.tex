@@ -1,0 +1,44 @@
+Στην περίπτωση που οι παίκτες αποκρίνονται διαδοχικά το αρχικό διάγραμμα Kripke είναι ξανά το σχήμα \ref{M1}. Παρατηρούμε, όπως και προηγουμένως, πως $(K_A\ AisWh)$ αληθεύει μόνο στην κατάσταση $s7$, ενώ $(K_B\ BisWh)$ ισχύει μόνο στην κατάσταση $s6$. Αν ο παίκτης A απαντήσει θετικά, τότε όλοι οι παίκτες ξέρουν πως βρισκόμαστε στην κατάσταση $s7$, και άρα όλοι μαθαίνουν το χρώμα τους. Αντιθέτως, αν ο παίκτης A απαντήσει αρνητικά, τότε το διάγραμμα Kripke αλλάζει όπως φαίνεται στο σχήμα \ref{M4} (Οι ακμές του παίκτη C παραλείπονται για λόγους ευκρίνειας). 
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[modal, node distance=3cm]
+
+    \node[world] (1) [label=above:$W W W$] {$s1$};
+    \node[world] (2) [label=left:$B W W$,below left=of 1] {$s2$};
+    \node[world] (3) [label=right:$W B W$] at (2 -| 1) {$s3$};
+    \node[world] (4) [label=right:$W W B$,below right=of 1] {$s4$};
+    \node[world] (5) [label=below:$B B W$,below left=of 2] {$s5$};
+    \node[world] (6) [label=below:$B W B$] at (5 -| 3) {$s6$};
+    
+    \path[-]
+        (1) edge[color=cyan] node[] {$B$} (3)
+        (2) edge[] node[] {$A$} (1)
+            edge[color=cyan] node[] {$B$} (5)
+        (3) edge[] node[] {$A$} (5)
+        (4) edge[] node[] {$A$} (6)
+    ;        
+\end{tikzpicture}
+\caption{M4}
+\label{M4}
+\end{figure}
+
+Παρατηρούμε τώρα ότι $(K_B\ BisWh)$ αληθεύει στις καταστάσεις $s4$ και $s6$. Θα διακρίνουμε δύο περιπτώσεις. Αν ο Β απαντήσει αρνητικά, τότε το διάγραμμα Kripke αλλάζει όπως φαίνεται στο σχήμα \ref{M3}. Όμως, όπως και πριν, $(K_C\ CisWh)$ ισχύει σε όλες τις καταστάσεις του σχήματος \ref{M3}. Έτσι λοιπόν, ο παίκτης C μαθαίνει το χρώμα του και απαντά θετικά.
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[modal, node distance=3cm]
+
+    \node[world] (4) [label=right:$W W B$,below right=of 1] {$s4$};
+    \node[world] (6) [label=below:$B W B$] at (5 -| 3) {$s6$};
+    
+    \path[-]
+        (4) edge[] node[] {$A$} (6)
+        (4) edge[color=purple, bend left] node[] {$C$} (6)
+    ;        
+\end{tikzpicture}
+\caption{M5}
+\label{M5}
+\end{figure}
+
+Αντιθέτως, αν ο παίκτης B απαντήσει θετικά, τότε το διάγραμμα Kripke αλλάζει όπως φαίνεται στο σχήμα \ref{M5}. Παρατηρούμε ότι $(K_C\ \neg CisWh)$ ισχύει σε όλες τις καταστάσεις του σχήματος \ref{M5}. Έτσι, ο παίκτης C μαθαίνει το χρώμα του και απαντά θετικά. Ο παίκτης Α δεν μαθαίνει κάποια καινούργια πληροφορία μετά την απόκριση του C κι έτσι δε θα μάθει ποτέ το χρώμα του, όσες φορές κι αν ρωτήσει ο βασιλιάς.

@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[greek,english]{babel}
+
+\title{Ασκήσεις 9γ και 10 από φυλλάδιο \\"Στοιχεία Προτασιακής Λογικής"}
+\author{Καμινάρης Κωνσταντίνος}
+\date{6/3/2024}
+
+% package to activate greek language - the sequence languages appear below is IMPORTANT!!!
+\usepackage[greek,english]{babel}
+\usepackage{fontspec}
+\usepackage[LGR]{fontenc}
+\setmainfont{GFS Artemisia}
+\setromanfont{Gentium}
+\usepackage[utf8]{inputenc}
+\usepackage{xgreek}
+
+\usepackage{unicode-math}
+\usepackage{enumitem}
+
+% line height
+\renewcommand{\baselinestretch}{1.15}
+
+%%%%%%%%% END OF PREAMBLE %%%%%%%%%%%%
+
+\begin{document}
+
+\setlanguage{greek} %% this is to activate greek hyphenation
+
+\maketitle
+
+\section*{Άσκηση 9}
+\subsection*{Ερώτηση}
+Για κάθε μία από τις παρακάτω δηλώσεις, βρείτε αν ισχύει στα εξής πεδία ορισμού:
+
+\[U1 = \{ \} , U2 = \{1\} , U3 = \{1, 2\} .\]
+
+\begin{enumerate}[label=\alph*)]
+    \item $``\ x \neq x\ ''$
+    \item $``$ αν $x \less y$ τότε $y \less x\ ''$
+    \item $``$ αν $x \neq y$ και $z \neq y$ τότε $x=z\ ''$
+\end{enumerate}
+
+\subsection*{Απάντηση}
+
+γ) 
+\begin{itemize}
+    \item Για το U1 δε μπορούμε να δώσουμε καμία τιμή στις μεταβλητές της συνάρτησης, άρα η συνεπαγωγή $``$ αν $x \neq y$ και $z \neq y$ τότε $x=z\ ''$ ισχύει στο πεδίο ορισμού U1, δεν υπάρχει αντιπαράδειγμα.
+    \item Για το U2 παρατηρούμε πως για οποιαδήποτε τιμοδοσία ισχύει $TA(x \neq y$ και $z \neq y) = false$. Επομένως η συνεπαγωγή $``$ αν $x \neq y$ και $z \neq y$ τότε $x=z\ ''$ ισχύει στο πεδίο ορισμού U2, δεν υπάρχει αντιπαράδειγμα.
+    \item Για το U3 θα προσπαθήσουμε να ικανοποιήσουμε την πρόταση $x \neq y$ και $z \neq y$.\\
+    Ας υποθέσουμε, χωρίς βλάβη της γενικότητας, ότι $y=1$. Τότε, σύμφωνα με τις υποθέσεις $x \neq y$ και $z \neq y$ θα πρέπει αναγκαστικά $x=z=2$.\\
+    Αντίστοιχα στην περίπτωση που $y=2$.\\
+    Παρατηρούμε λοιπόν πως είτε θα ισχύει $ΤΑ(x \neq y$ και $z \neq y) = true$ και ταυτόχρονα $TA(x=z) = true$, είτε θα ισχύει $ΤΑ(x \neq y$ και $z \neq y) = false$. Επομένως η συνεπαγωγή $``$ αν $x \neq y$ και $z \neq y$ τότε $x=z\ ''$ ισχύει στο πεδίο ορισμού U3, δεν υπάρχει αντιπαράδειγμα.
+\end{itemize}
+
+\section*{Άσκηση 10}
+\subsection*{Ερώτηση}
+Επαληθεύστε ότι: κάθε δήλωση όπου εμφανίζονται μεταβλητές, ισχύει στο πεδίο ορισμού $U = \{ \}$.
+
+\subsection*{Απάντηση}
+Έστω δήλωση $φ$ στην οποία εμφανίζονται μεταβλητές. Οι μεταβλητές αυτές δε μπορούν να πάρουν καμία τιμή από το πεδίο ορισμού $U$, άρα δεν υπάρχει αντιπαράδειγμα για την $φ$. Επομένως, η $φ$ ισχύει στο πεδίο ορισμού $U$.
+
+\end{document}
